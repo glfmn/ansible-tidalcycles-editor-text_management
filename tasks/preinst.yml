@@ -1,0 +1,11 @@
+---
+
+- name: get url of latest text.management editor release
+  shell: curl -s https://api.github.com/repos/mindofmatthew/text.management/releases | grep browser_ | grep \.deb | cut -d\" -f4
+  register: tmver
+  changed_when: false
+
+- name: download latest text.management editor deb package
+  get_url:
+    url: "{{ tmver.stdout }}"
+    dest: /tmp/text.management.deb

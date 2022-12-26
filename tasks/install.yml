@@ -1,0 +1,4 @@
+---
+- name: install text.management editor
+  apt:
+    deb: /tmp/text.management.deb

@@ -1,0 +1,9 @@
+---
+
+- include_role:
+    name: "roles/ugens-{{ item }}"
+  vars:
+    editor: "{{ text_management.editor }}"
+  with_items: "{{ sc_ugens }}"
+  when: sc_ugens is defined
+
